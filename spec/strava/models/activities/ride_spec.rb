@@ -41,6 +41,14 @@ RSpec.describe Strava::Models::Activity do
       expect(activity.total_elevation_gain_in_meters_s).to eq '516m'
       expect(activity.total_elevation_gain_in_feet_s).to eq '1692.9ft'
       expect(activity.total_elevation_gain_s).to eq '516m'
+
+      # Descent
+      # TODO: Currently equal to ascent. Needs to equal (ascent + start elevation - end elevation).
+      expect(activity.total_elevation_loss_in_feet).to eq 1692.91344
+      expect(activity.total_elevation_loss_in_meters).to eq 516
+      expect(activity.total_elevation_loss_in_meters_s).to eq '516m'
+      expect(activity.total_elevation_loss_in_feet_s).to eq '1692.9ft'
+      expect(activity.total_elevation_loss_s).to eq '516m'
     end
   end
 end
